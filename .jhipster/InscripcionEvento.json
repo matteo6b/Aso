@@ -1,0 +1,31 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "evento",
+            "otherEntityName": "evento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "entrada",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "fechains",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160419234550",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "inscripcion_evento",
+    "pagination": "no"
+}

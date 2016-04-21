@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="asoApp.imagen.home.title">Imagens</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="imagen.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="asoApp.imagen.home.createLabel">
+                        Create new Imagen
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="url"><span translate="asoApp.imagen.url">Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.name"><span translate="asoApp.imagen.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imagenaso.name"><span translate="asoApp.imagen.imagenaso">imagenaso</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="eventoi.name"><span translate="asoApp.imagen.eventoi">eventoi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="imagen in vm.imagens track by imagen.id">
+                    <td><a ui-sref="imagen-detail({id:imagen.id})">{{imagen.id}}</a></td>
+                    <td>{{imagen.url}}</td>
+                    <td>
+                        {{imagen.user.name}}
+                    </td>
+                    <td>
+                        <a ui-sref="asociacion-detail({id:imagen.imagenaso.id})">{{imagen.imagenaso.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="evento-detail({id:imagen.eventoi.id})">{{imagen.eventoi.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="imagen-detail({id:imagen.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="imagen.edit({id:imagen.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="imagen.delete({id:imagen.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "asoApp": {
+        "favorito" : {
+            "home": {
+                "title": "Favoritos",
+                "createLabel": "Create a new Favorito",
+                "createOrEditLabel": "Create or edit a Favorito",
+                "search": "Search for Favorito"
+            },
+            "created": "A new Favorito is created with identifier {{ param }}",
+            "updated": "A Favorito is updated with identifier {{ param }}",
+            "deleted": "A Favorito is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Favorito {{ id }}?"
+            },
+            "detail": {
+                "title": "Favorito"
+            },
+            "likes": "Likes",
+            "asof": "Asof",
+            "user": "User",
+            "eventof": "Eventof"
+        }
+    }
+}

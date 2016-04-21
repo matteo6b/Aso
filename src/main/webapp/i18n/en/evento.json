@@ -1,0 +1,33 @@
+{
+    "asoApp": {
+        "evento" : {
+            "home": {
+                "title": "Eventos",
+                "createLabel": "Create a new Evento",
+                "createOrEditLabel": "Create or edit a Evento",
+                "search": "Search for Evento"
+            },
+            "created": "A new Evento is created with identifier {{ param }}",
+            "updated": "A Evento is updated with identifier {{ param }}",
+            "deleted": "A Evento is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Evento {{ id }}?"
+            },
+            "detail": {
+                "title": "Evento"
+            },
+            "nombre": "Nombre",
+            "fecha": "Fecha",
+            "streetAdress": "StreetAdress",
+            "lat": "Lat",
+            "lng": "Lng",
+            "capacidad": "Capacidad",
+            "entrada": "Entrada",
+            "descripcion": "Descripcion",
+            "evento": "Evento",
+            "imagen": "Imagen",
+            "favorito": "Favorito",
+            "asociacionevent": "Asociacionevent"
+        }
+    }
+}

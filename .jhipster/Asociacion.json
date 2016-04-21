@@ -1,0 +1,79 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "imagen",
+            "otherEntityName": "imagen",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "imagenaso"
+
+        },
+        {
+            "relationshipName": "evento",
+            "otherEntityName": "evento",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "asociacionevent"
+        },
+        {
+            "relationshipName": "asociacion",
+            "otherEntityName": "inscripcionAso",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "asociacion"
+        },
+        {
+            "relationshipName": "favorito",
+            "otherEntityName": "favorito",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "asof"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "fecchaCreacion",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "cuota",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instrucciones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "streetAdress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lng",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20160419175105",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "asociacion",
+    "pagination": "infinite-scroll"
+}

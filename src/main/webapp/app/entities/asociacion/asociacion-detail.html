@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span translate="asoApp.asociacion.detail.title">Asociacion</span> {{vm.asociacion.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="asoApp.asociacion.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.fecchaCreacion">FecchaCreacion</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.fecchaCreacion | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.cuota">Cuota</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.cuota}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.tipo">Tipo</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.tipo}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.instrucciones">Instrucciones</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.instrucciones}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.descripcion">Descripcion</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.descripcion}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.streetAdress">StreetAdress</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.streetAdress}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.lat">Lat</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.lat}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.lng">Lng</dt></dt>
+        <dd>
+            <span>{{vm.asociacion.lng}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.asociacion.user">user</span></dt>
+        <dd>
+            {{vm.asociacion.user.name}}
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myImagenLabel" translate="asoApp.imagen.home.createOrEditLabel">Create or edit a Imagen</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.imagen.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="asoApp.imagen.url" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                    ng-model="vm.imagen.url"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="asoApp.imagen.user" for="field_user">user</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.imagen.user" ng-options="user as user.name for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="asoApp.imagen.imagenaso" for="field_imagenaso">imagenaso</label>
+            <select class="form-control" id="field_imagenaso" name="imagenaso" ng-model="vm.imagen.imagenaso" ng-options="asociacion as asociacion.name for asociacion in vm.asociacions track by asociacion.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="asoApp.imagen.eventoi" for="field_eventoi">eventoi</label>
+            <select class="form-control" id="field_eventoi" name="eventoi" ng-model="vm.imagen.eventoi" ng-options="evento as evento.name for evento in vm.eventos track by evento.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

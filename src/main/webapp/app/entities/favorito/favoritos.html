@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="asoApp.favorito.home.title">Favoritos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="favorito.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="asoApp.favorito.home.createLabel">
+                        Create new Favorito
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="asoApp.favorito.likes">Likes</span></th>
+                    <th><span translate="asoApp.favorito.asof">asof</span></th>
+                    <th><span translate="asoApp.favorito.user">user</span></th>
+                    <th><span translate="asoApp.favorito.eventof">eventof</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="favorito in vm.favoritos track by favorito.id">
+                    <td><a ui-sref="favorito-detail({id:favorito.id})">{{favorito.id}}</a></td>
+                    <td>{{favorito.likes}}</td>
+                    <td>
+                        <a ui-sref="asociacion-detail({id:favorito.asof.id})">{{favorito.asof.name}}</a>
+                    </td>
+                    <td>
+                        {{favorito.user.name}}
+                    </td>
+                    <td>
+                        <a ui-sref="evento-detail({id:favorito.eventof.id})">{{favorito.eventof.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="favorito-detail({id:favorito.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="favorito.edit({id:favorito.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="favorito.delete({id:favorito.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

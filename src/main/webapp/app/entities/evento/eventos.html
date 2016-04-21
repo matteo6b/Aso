@@ -1,0 +1,74 @@
+<div>
+    <h2 translate="asoApp.evento.home.title">Eventos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="evento.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="asoApp.evento.home.createLabel">
+                        Create new Evento
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span translate="asoApp.evento.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fecha"><span translate="asoApp.evento.fecha">Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="streetAdress"><span translate="asoApp.evento.streetAdress">StreetAdress</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lat"><span translate="asoApp.evento.lat">Lat</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lng"><span translate="asoApp.evento.lng">Lng</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="capacidad"><span translate="asoApp.evento.capacidad">Capacidad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="entrada"><span translate="asoApp.evento.entrada">Entrada</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="descripcion"><span translate="asoApp.evento.descripcion">Descripcion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="asociacionevent.name"><span translate="asoApp.evento.asociacionevent">asociacionevent</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="evento in vm.eventos track by evento.id">
+                    <td><a ui-sref="evento-detail({id:evento.id})">{{evento.id}}</a></td>
+                    <td>{{evento.nombre}}</td>
+                    <td>{{evento.fecha | date:'medium'}}</td>
+                    <td>{{evento.streetAdress}}</td>
+                    <td>{{evento.lat}}</td>
+                    <td>{{evento.lng}}</td>
+                    <td>{{evento.capacidad}}</td>
+                    <td>{{evento.entrada}}</td>
+                    <td>{{evento.descripcion}}</td>
+                    <td>
+                        <a ui-sref="asociacion-detail({id:evento.asociacionevent.id})">{{evento.asociacionevent.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="evento-detail({id:evento.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="evento.edit({id:evento.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="evento.delete({id:evento.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

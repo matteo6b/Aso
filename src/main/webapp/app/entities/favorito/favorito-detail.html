@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="asoApp.favorito.detail.title">Favorito</span> {{vm.favorito.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="asoApp.favorito.likes">Likes</dt></dt>
+        <dd>
+            <span>{{vm.favorito.likes}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.favorito.asof">asof</span></dt>
+        <dd>
+            <a ui-sref="asociacion-detail({id:vm.favorito.asof.id})">{{vm.favorito.asof.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.favorito.user">user</span></dt>
+        <dd>
+            {{vm.favorito.user.name}}
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.favorito.eventof">eventof</span></dt>
+        <dd>
+            <a ui-sref="evento-detail({id:vm.favorito.eventof.id})">{{vm.favorito.eventof.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

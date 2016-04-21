@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="asoApp.inscripcionAso.detail.title">InscripcionAso</span> {{vm.inscripcionAso.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="asoApp.inscripcionAso.validar">Validar</dt></dt>
+        <dd>
+            <span>{{vm.inscripcionAso.validar}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.inscripcionAso.fechaInscrito">FechaInscrito</dt></dt>
+        <dd>
+            <span>{{vm.inscripcionAso.fechaInscrito | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.inscripcionAso.asociacion">asociacion</span></dt>
+        <dd>
+            <a ui-sref="asociacion-detail({id:vm.inscripcionAso.asociacion.id})">{{vm.inscripcionAso.asociacion.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.inscripcionAso.user">user</span></dt>
+        <dd>
+            {{vm.inscripcionAso.user.name}}
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

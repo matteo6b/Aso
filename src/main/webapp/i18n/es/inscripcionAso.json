@@ -1,0 +1,25 @@
+{
+    "asoApp": {
+        "inscripcionAso" : {
+            "home": {
+                "title": "InscripcionAsos",
+                "createLabel": "Crear nuevo InscripcionAso",
+                "createOrEditLabel": "Crear o editar InscripcionAso",
+                "search": "Search for InscripcionAso"
+            },
+            "created": "Un nuevo InscripcionAso ha sido creado con el identificador {{ param }}",
+            "updated": "Un InscripcionAso ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un InscripcionAso ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar InscripcionAso {{ id }}?"
+            },
+            "detail": {
+                "title": "InscripcionAso"
+            },
+            "validar": "Validar",
+            "fechaInscrito": "FechaInscrito",
+            "asociacion": "Asociacion",
+            "user": "User"
+        }
+    }
+}

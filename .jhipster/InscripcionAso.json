@@ -1,0 +1,31 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "asociacion",
+            "otherEntityName": "asociacion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "validar",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fechaInscrito",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160419234253",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "inscripcion_aso",
+    "pagination": "no"
+}

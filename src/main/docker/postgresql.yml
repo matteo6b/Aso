@@ -1,0 +1,12 @@
+version: '2'
+services:
+    aso-postgresql:
+        container_name: aso-postgresql
+        image: postgres:9.5.1
+        # volumes:
+        #     - ~/volumes/jhipster/Aso/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=Aso
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

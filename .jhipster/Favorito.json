@@ -1,0 +1,33 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "asof",
+            "otherEntityName": "asociacion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "eventof",
+            "otherEntityName": "evento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "likes",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20160419202913",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "favorito",
+    "pagination": "no"
+}

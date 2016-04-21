@@ -1,0 +1,66 @@
+<div>
+    <h2 translate="asoApp.inscripcionAso.home.title">InscripcionAsos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="inscripcion-aso.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="asoApp.inscripcionAso.home.createLabel">
+                        Create new InscripcionAso
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="asoApp.inscripcionAso.validar">Validar</span></th>
+                    <th><span translate="asoApp.inscripcionAso.fechaInscrito">FechaInscrito</span></th>
+                    <th><span translate="asoApp.inscripcionAso.asociacion">asociacion</span></th>
+                    <th><span translate="asoApp.inscripcionAso.user">user</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="inscripcionAso in vm.inscripcionAsos track by inscripcionAso.id">
+                    <td><a ui-sref="inscripcion-aso-detail({id:inscripcionAso.id})">{{inscripcionAso.id}}</a></td>
+                    <td>{{inscripcionAso.validar}}</td>
+                    <td>{{inscripcionAso.fechaInscrito | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="asociacion-detail({id:inscripcionAso.asociacion.id})">{{inscripcionAso.asociacion.name}}</a>
+                    </td>
+                    <td>
+                        {{inscripcionAso.user.name}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="inscripcion-aso-detail({id:inscripcionAso.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="inscripcion-aso.edit({id:inscripcionAso.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="inscripcion-aso.delete({id:inscripcionAso.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

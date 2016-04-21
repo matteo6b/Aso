@@ -1,0 +1,25 @@
+{
+    "asoApp": {
+        "imagen" : {
+            "home": {
+                "title": "Imagens",
+                "createLabel": "Crear nuevo Imagen",
+                "createOrEditLabel": "Crear o editar Imagen",
+                "search": "Search for Imagen"
+            },
+            "created": "Un nuevo Imagen ha sido creado con el identificador {{ param }}",
+            "updated": "Un Imagen ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Imagen ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Imagen {{ id }}?"
+            },
+            "detail": {
+                "title": "Imagen"
+            },
+            "url": "Url",
+            "user": "User",
+            "imagenaso": "Imagenaso",
+            "eventoi": "Eventoi"
+        }
+    }
+}

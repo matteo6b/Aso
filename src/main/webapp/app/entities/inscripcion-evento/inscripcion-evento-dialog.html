@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myInscripcionEventoLabel" translate="asoApp.inscripcionEvento.home.createOrEditLabel">Create or edit a InscripcionEvento</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.inscripcionEvento.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="asoApp.inscripcionEvento.entrada" for="field_entrada">Entrada</label>
+            <input type="number" class="form-control" name="entrada" id="field_entrada"
+                    ng-model="vm.inscripcionEvento.entrada"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="asoApp.inscripcionEvento.fechains" for="field_fechains">Fechains</label>
+                <div class="input-group">
+                    <input id="field_fechains" type="text" class="form-control" name="fechains" datetime-picker="{{dateformat}}" ng-model="vm.inscripcionEvento.fechains" is-open="vm.datePickerOpenStatus.fechains"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechains')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="asoApp.inscripcionEvento.evento" for="field_evento">evento</label>
+            <select class="form-control" id="field_evento" name="evento" ng-model="vm.inscripcionEvento.evento" ng-options="evento as evento.name for evento in vm.eventos track by evento.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="asoApp.inscripcionEvento.user" for="field_user">user</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.inscripcionEvento.user" ng-options="user as user.name for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

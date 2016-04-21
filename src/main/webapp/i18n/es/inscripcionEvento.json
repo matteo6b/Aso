@@ -1,0 +1,25 @@
+{
+    "asoApp": {
+        "inscripcionEvento" : {
+            "home": {
+                "title": "InscripcionEventos",
+                "createLabel": "Crear nuevo InscripcionEvento",
+                "createOrEditLabel": "Crear o editar InscripcionEvento",
+                "search": "Search for InscripcionEvento"
+            },
+            "created": "Un nuevo InscripcionEvento ha sido creado con el identificador {{ param }}",
+            "updated": "Un InscripcionEvento ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un InscripcionEvento ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar InscripcionEvento {{ id }}?"
+            },
+            "detail": {
+                "title": "InscripcionEvento"
+            },
+            "entrada": "Entrada",
+            "fechains": "Fechains",
+            "evento": "Evento",
+            "user": "User"
+        }
+    }
+}

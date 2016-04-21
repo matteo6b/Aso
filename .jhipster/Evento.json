@@ -1,0 +1,68 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "evento",
+            "otherEntityName": "inscripcionEvento",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "evento"
+        },
+        {
+            "relationshipName": "imagen",
+            "otherEntityName": "imagen",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "eventoi"
+        },
+        {
+            "relationshipName": "favorito",
+            "otherEntityName": "favorito",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "eventof"
+        },
+        {
+            "relationshipName": "asociacionevent",
+            "otherEntityName": "asociacion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "streetAdress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lng",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "capacidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "entrada",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160419172642",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "evento",
+    "pagination": "infinite-scroll"
+}

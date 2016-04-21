@@ -1,0 +1,35 @@
+{
+    "asoApp": {
+        "asociacion" : {
+            "home": {
+                "title": "Asociacions",
+                "createLabel": "Crear nuevo Asociacion",
+                "createOrEditLabel": "Crear o editar Asociacion",
+                "search": "Search for Asociacion"
+            },
+            "created": "Un nuevo Asociacion ha sido creado con el identificador {{ param }}",
+            "updated": "Un Asociacion ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Asociacion ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Asociacion {{ id }}?"
+            },
+            "detail": {
+                "title": "Asociacion"
+            },
+            "name": "Name",
+            "fecchaCreacion": "FecchaCreacion",
+            "cuota": "Cuota",
+            "tipo": "Tipo",
+            "instrucciones": "Instrucciones",
+            "descripcion": "Descripcion",
+            "streetAdress": "StreetAdress",
+            "lat": "Lat",
+            "lng": "Lng",
+            "imagen": "Imagen",
+            "evento": "Evento",
+            "asociacion": "Asociacion",
+            "favorito": "Favorito",
+            "user": "User"
+        }
+    }
+}
