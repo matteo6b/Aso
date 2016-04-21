@@ -3,13 +3,13 @@ services:
     aso-app:
         image: aso
         external_links:
-            - aso-mysql:mysql
+            - aso-postgresql:postgresql
         environment:
             - SPRING_PROFILES_ACTIVE=prod
-            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/aso?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/Aso
         ports:
             - 8080:8080
-    aso-mysql:
+    aso-postgresql:
         extends:
-            file: mysql.yml
-            service: aso-mysql
+            file: postgresql.yml
+            service: aso-postgresql
