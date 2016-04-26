@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Evento"
             },
-            "nombre": "Nombre",
+            "name": "Name",
             "fecha": "Fecha",
             "streetAdress": "StreetAdress",
             "lat": "Lat",

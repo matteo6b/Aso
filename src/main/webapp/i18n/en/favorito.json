@@ -16,6 +16,7 @@
             "detail": {
                 "title": "Favorito"
             },
+            "like": "Like",
             "likes": "Likes",
             "asof": "Asof",
             "user": "User",

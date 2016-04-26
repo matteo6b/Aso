@@ -3,6 +3,11 @@
     <h2><span translate="asoApp.favorito.detail.title">Favorito</span> {{vm.favorito.id}}</h2>
     <hr>
     <dl class="dl-horizontal">
+        <dt><span translate="asoApp.favorito.like">Like</dt></dt>
+        <dd>
+            <span>{{vm.favorito.like}}<span>
+        </dd>
+        <hr>
         <dt><span translate="asoApp.favorito.likes">Likes</dt></dt>
         <dd>
             <span>{{vm.favorito.likes}}<span>
@@ -15,7 +20,7 @@
         <hr>
         <dt><span translate="asoApp.favorito.user">user</span></dt>
         <dd>
-            {{vm.favorito.user.name}}
+            {{vm.favorito.user.login}}
         </dd>
         <hr>
         <dt><span translate="asoApp.favorito.eventof">eventof</span></dt>

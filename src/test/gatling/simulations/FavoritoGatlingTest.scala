@@ -67,7 +67,7 @@ class FavoritoGatlingTest extends Simulation {
             .exec(http("Create new favorito")
             .post("/api/favoritos")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "likes":null}""")).asJSON
+            .body(StringBody("""{"id":null, "like":null, "likes":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_favorito_url"))).exitHereIfFailed
             .pause(10)

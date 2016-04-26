@@ -27,7 +27,7 @@
     ],
     "fields": [
         {
-            "fieldName": "nombre",
+            "fieldName": "name",
             "fieldType": "String",
             "fieldValidateRules": []
         },

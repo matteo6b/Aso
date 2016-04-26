@@ -42,6 +42,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class FavoritoResourceIntTest {
 
 
+    private static final Boolean DEFAULT_LIKE = false;
+    private static final Boolean UPDATED_LIKE = true;
+
     private static final Double DEFAULT_LIKES = 1D;
     private static final Double UPDATED_LIKES = 2D;
 
@@ -71,6 +74,7 @@ public class FavoritoResourceIntTest {
     @Before
     public void initTest() {
         favorito = new Favorito();
+        favorito.setLike(DEFAULT_LIKE);
         favorito.setLikes(DEFAULT_LIKES);
     }
 
@@ -90,6 +94,7 @@ public class FavoritoResourceIntTest {
         List<Favorito> favoritos = favoritoRepository.findAll();
         assertThat(favoritos).hasSize(databaseSizeBeforeCreate + 1);
         Favorito testFavorito = favoritos.get(favoritos.size() - 1);
+        assertThat(testFavorito.isLike()).isEqualTo(DEFAULT_LIKE);
         assertThat(testFavorito.getLikes()).isEqualTo(DEFAULT_LIKES);
     }
 
@@ -104,6 +109,7 @@ public class FavoritoResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(favorito.getId().intValue())))
+                .andExpect(jsonPath("$.[*].like").value(hasItem(DEFAULT_LIKE.booleanValue())))
                 .andExpect(jsonPath("$.[*].likes").value(hasItem(DEFAULT_LIKES.doubleValue())));
     }
 
@@ -118,6 +124,7 @@ public class FavoritoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(favorito.getId().intValue()))
+            .andExpect(jsonPath("$.like").value(DEFAULT_LIKE.booleanValue()))
             .andExpect(jsonPath("$.likes").value(DEFAULT_LIKES.doubleValue()));
     }
 
@@ -139,6 +146,7 @@ public class FavoritoResourceIntTest {
         // Update the favorito
         Favorito updatedFavorito = new Favorito();
         updatedFavorito.setId(favorito.getId());
+        updatedFavorito.setLike(UPDATED_LIKE);
         updatedFavorito.setLikes(UPDATED_LIKES);
 
         restFavoritoMockMvc.perform(put("/api/favoritos")
@@ -150,6 +158,7 @@ public class FavoritoResourceIntTest {
         List<Favorito> favoritos = favoritoRepository.findAll();
         assertThat(favoritos).hasSize(databaseSizeBeforeUpdate);
         Favorito testFavorito = favoritos.get(favoritos.size() - 1);
+        assertThat(testFavorito.isLike()).isEqualTo(UPDATED_LIKE);
         assertThat(testFavorito.getLikes()).isEqualTo(UPDATED_LIKES);
     }
 

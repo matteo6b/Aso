@@ -20,7 +20,7 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="url"><span translate="asoApp.imagen.url">Url</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="user.name"><span translate="asoApp.imagen.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.login"><span translate="asoApp.imagen.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="imagenaso.name"><span translate="asoApp.imagen.imagenaso">imagenaso</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="eventoi.name"><span translate="asoApp.imagen.eventoi">eventoi</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -31,7 +31,7 @@
                     <td><a ui-sref="imagen-detail({id:imagen.id})">{{imagen.id}}</a></td>
                     <td>{{imagen.url}}</td>
                     <td>
-                        {{imagen.user.name}}
+                        {{imagen.user.login}}
                     </td>
                     <td>
                         <a ui-sref="asociacion-detail({id:imagen.imagenaso.id})">{{imagen.imagenaso.name}}</a>

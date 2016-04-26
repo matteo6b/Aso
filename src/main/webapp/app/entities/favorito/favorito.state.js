@@ -71,6 +71,7 @@
                     resolve: {
                         entity: function () {
                             return {
+                                like: null,
                                 likes: null,
                                 id: null
                             };

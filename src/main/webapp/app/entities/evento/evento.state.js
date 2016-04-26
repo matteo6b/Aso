@@ -71,7 +71,7 @@
                     resolve: {
                         entity: function () {
                             return {
-                                nombre: null,
+                                name: null,
                                 fecha: null,
                                 streetAdress: null,
                                 lat: null,

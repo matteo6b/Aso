@@ -29,7 +29,7 @@
             "relationshipName": "user",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
-            "otherEntityField": "name"
+            "otherEntityField": "login"
         }
     ],
     "fields": [

@@ -14,6 +14,11 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 /* ==========================================================================
 Developement Ribbon
 ========================================================================== */
+#card{
+
+    background-color: blue;
+}
+
 .development {
     position: absolute;
     width: 149px;

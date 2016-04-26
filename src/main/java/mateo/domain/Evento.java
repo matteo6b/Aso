@@ -22,8 +22,8 @@ public class Evento implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "fecha")
     private ZonedDateTime fecha;
@@ -69,12 +69,12 @@ public class Evento implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public ZonedDateTime getFecha() {
@@ -189,7 +189,7 @@ public class Evento implements Serializable {
     public String toString() {
         return "Evento{" +
             "id=" + id +
-            ", nombre='" + nombre + "'" +
+            ", name='" + name + "'" +
             ", fecha='" + fecha + "'" +
             ", streetAdress='" + streetAdress + "'" +
             ", lat='" + lat + "'" +

@@ -18,6 +18,9 @@ public class Favorito implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "like")
+    private Boolean like;
+
     @Column(name = "likes")
     private Double likes;
 
@@ -36,6 +39,14 @@ public class Favorito implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Boolean isLike() {
+        return like;
+    }
+
+    public void setLike(Boolean like) {
+        this.like = like;
     }
 
     public Double getLikes() {
@@ -94,6 +105,7 @@ public class Favorito implements Serializable {
     public String toString() {
         return "Favorito{" +
             "id=" + id +
+            ", like='" + like + "'" +
             ", likes='" + likes + "'" +
             '}';
     }

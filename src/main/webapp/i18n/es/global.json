@@ -23,7 +23,7 @@
                 "login": "Iniciar sesión",
                 "logout": "Cerrar la sesión",
                 "register": "Crear una  asociacion",
-                "register": "Crear socio"
+                "registerSocio": "Crear socio"
 
 
             },

@@ -47,8 +47,8 @@ public class EventoResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_NOMBRE = "AAAAA";
-    private static final String UPDATED_NOMBRE = "BBBBB";
+    private static final String DEFAULT_NAME = "AAAAA";
+    private static final String UPDATED_NAME = "BBBBB";
 
     private static final ZonedDateTime DEFAULT_FECHA = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_FECHA = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -96,7 +96,7 @@ public class EventoResourceIntTest {
     @Before
     public void initTest() {
         evento = new Evento();
-        evento.setNombre(DEFAULT_NOMBRE);
+        evento.setName(DEFAULT_NAME);
         evento.setFecha(DEFAULT_FECHA);
         evento.setStreetAdress(DEFAULT_STREET_ADRESS);
         evento.setLat(DEFAULT_LAT);
@@ -122,7 +122,7 @@ public class EventoResourceIntTest {
         List<Evento> eventos = eventoRepository.findAll();
         assertThat(eventos).hasSize(databaseSizeBeforeCreate + 1);
         Evento testEvento = eventos.get(eventos.size() - 1);
-        assertThat(testEvento.getNombre()).isEqualTo(DEFAULT_NOMBRE);
+        assertThat(testEvento.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testEvento.getFecha()).isEqualTo(DEFAULT_FECHA);
         assertThat(testEvento.getStreetAdress()).isEqualTo(DEFAULT_STREET_ADRESS);
         assertThat(testEvento.getLat()).isEqualTo(DEFAULT_LAT);
@@ -143,7 +143,7 @@ public class EventoResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(evento.getId().intValue())))
-                .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE.toString())))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA_STR)))
                 .andExpect(jsonPath("$.[*].streetAdress").value(hasItem(DEFAULT_STREET_ADRESS.toString())))
                 .andExpect(jsonPath("$.[*].lat").value(hasItem(DEFAULT_LAT.doubleValue())))
@@ -164,7 +164,7 @@ public class EventoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(evento.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA_STR))
             .andExpect(jsonPath("$.streetAdress").value(DEFAULT_STREET_ADRESS.toString()))
             .andExpect(jsonPath("$.lat").value(DEFAULT_LAT.doubleValue()))
@@ -192,7 +192,7 @@ public class EventoResourceIntTest {
         // Update the evento
         Evento updatedEvento = new Evento();
         updatedEvento.setId(evento.getId());
-        updatedEvento.setNombre(UPDATED_NOMBRE);
+        updatedEvento.setName(UPDATED_NAME);
         updatedEvento.setFecha(UPDATED_FECHA);
         updatedEvento.setStreetAdress(UPDATED_STREET_ADRESS);
         updatedEvento.setLat(UPDATED_LAT);
@@ -210,7 +210,7 @@ public class EventoResourceIntTest {
         List<Evento> eventos = eventoRepository.findAll();
         assertThat(eventos).hasSize(databaseSizeBeforeUpdate);
         Evento testEvento = eventos.get(eventos.size() - 1);
-        assertThat(testEvento.getNombre()).isEqualTo(UPDATED_NOMBRE);
+        assertThat(testEvento.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testEvento.getFecha()).isEqualTo(UPDATED_FECHA);
         assertThat(testEvento.getStreetAdress()).isEqualTo(UPDATED_STREET_ADRESS);
         assertThat(testEvento.getLat()).isEqualTo(UPDATED_LAT);

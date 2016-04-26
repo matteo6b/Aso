@@ -19,6 +19,7 @@
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="asoApp.favorito.like">Like</span></th>
                     <th><span translate="asoApp.favorito.likes">Likes</span></th>
                     <th><span translate="asoApp.favorito.asof">asof</span></th>
                     <th><span translate="asoApp.favorito.user">user</span></th>
@@ -29,12 +30,13 @@
             <tbody>
                 <tr ng-repeat="favorito in vm.favoritos track by favorito.id">
                     <td><a ui-sref="favorito-detail({id:favorito.id})">{{favorito.id}}</a></td>
+                    <td>{{favorito.like}}</td>
                     <td>{{favorito.likes}}</td>
                     <td>
                         <a ui-sref="asociacion-detail({id:favorito.asof.id})">{{favorito.asof.name}}</a>
                     </td>
                     <td>
-                        {{favorito.user.name}}
+                        {{favorito.user.login}}
                     </td>
                     <td>
                         <a ui-sref="evento-detail({id:favorito.eventof.id})">{{favorito.eventof.name}}</a>
