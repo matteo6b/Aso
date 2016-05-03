@@ -11,7 +11,7 @@
         var vm = this;
 
         vm.account = null;
-        vm.isAuthenticated = null;
+        vm.isAuthenticated = Principal.isAuthenticated;
         vm.login = LoginService.open;
         $scope.$on('authenticationSuccess', function() {
             getAccount();

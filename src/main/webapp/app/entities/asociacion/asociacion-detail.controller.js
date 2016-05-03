@@ -5,9 +5,9 @@
         .module('asoApp')
         .controller('AsociacionDetailController', AsociacionDetailController);
 
-    AsociacionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Asociacion', 'Imagen', 'Evento', 'InscripcionAso', 'Favorito', 'User'];
+    AsociacionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Asociacion', 'Imagen', 'Type', 'Evento', 'InscripcionAso', 'Favorito', 'User'];
 
-    function AsociacionDetailController($scope, $rootScope, $stateParams, entity, Asociacion, Imagen, Evento, InscripcionAso, Favorito, User) {
+    function AsociacionDetailController($scope, $rootScope, $stateParams, entity, Asociacion, Imagen, Type, Evento, InscripcionAso, Favorito, User) {
         var vm = this;
         vm.asociacion = entity;
         vm.load = function (id) {

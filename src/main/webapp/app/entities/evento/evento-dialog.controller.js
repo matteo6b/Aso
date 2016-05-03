@@ -5,13 +5,14 @@
         .module('asoApp')
         .controller('EventoDialogController', EventoDialogController);
 
-    EventoDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Evento', 'InscripcionEvento', 'Imagen', 'Favorito', 'Asociacion'];
+    EventoDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Evento', 'InscripcionEvento', 'Imagen', 'Type', 'Favorito', 'Asociacion'];
 
-    function EventoDialogController ($scope, $stateParams, $uibModalInstance, entity, Evento, InscripcionEvento, Imagen, Favorito, Asociacion) {
+    function EventoDialogController ($scope, $stateParams, $uibModalInstance, entity, Evento, InscripcionEvento, Imagen, Type, Favorito, Asociacion) {
         var vm = this;
         vm.evento = entity;
         vm.inscripcioneventos = InscripcionEvento.query();
         vm.imagens = Imagen.query();
+        vm.types = Type.query();
         vm.favoritos = Favorito.query();
         vm.asociacions = Asociacion.query();
         vm.load = function(id) {

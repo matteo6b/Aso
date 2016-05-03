@@ -1,0 +1,27 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "asociacion",
+            "otherEntityName": "asociacion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipName": "evento",
+            "otherEntityName": "evento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160502231616",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "type",
+    "pagination": "pager"
+}

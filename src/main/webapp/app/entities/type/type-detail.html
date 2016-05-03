@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="asoApp.type.detail.title">Type</span> {{vm.type.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="asoApp.type.nombre">Nombre</dt></dt>
+        <dd>
+            <span>{{vm.type.nombre}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.type.asociacion">asociacion</span></dt>
+        <dd>
+            <a ui-sref="asociacion-detail({id:vm.type.asociacion.id})">{{vm.type.asociacion.nombre}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="asoApp.type.evento">evento</span></dt>
+        <dd>
+            <a ui-sref="evento-detail({id:vm.type.evento.id})">{{vm.type.evento.nombre}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

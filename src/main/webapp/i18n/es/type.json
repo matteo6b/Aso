@@ -1,0 +1,24 @@
+{
+    "asoApp": {
+        "type" : {
+            "home": {
+                "title": "Types",
+                "createLabel": "Crear nuevo Type",
+                "createOrEditLabel": "Crear o editar Type",
+                "search": "Search for Type"
+            },
+            "created": "Un nuevo Type ha sido creado con el identificador {{ param }}",
+            "updated": "Un Type ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Type ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Type"
+            },
+            "nombre": "Nombre",
+            "asociacion": "Asociacion",
+            "evento": "Evento"
+        }
+    }
+}

@@ -25,14 +25,11 @@ public class Asociacion implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "feccha_creacion")
-    private ZonedDateTime fecchaCreacion;
+    @Column(name = "fecha_creacion")
+    private ZonedDateTime fechaCreacion;
 
     @Column(name = "cuota")
     private Integer cuota;
-
-    @Column(name = "tipo")
-    private String tipo;
 
     @Column(name = "instrucciones")
     private String instrucciones;
@@ -52,6 +49,10 @@ public class Asociacion implements Serializable {
     @OneToMany(mappedBy = "imagenaso")
     @JsonIgnore
     private Set<Imagen> imagens = new HashSet<>();
+
+    @OneToMany(mappedBy = "asociacion")
+    @JsonIgnore
+    private Set<Type> tipos = new HashSet<>();
 
     @OneToMany(mappedBy = "asociacionevent")
     @JsonIgnore
@@ -84,12 +85,12 @@ public class Asociacion implements Serializable {
         this.name = name;
     }
 
-    public ZonedDateTime getFecchaCreacion() {
-        return fecchaCreacion;
+    public ZonedDateTime getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setFecchaCreacion(ZonedDateTime fecchaCreacion) {
-        this.fecchaCreacion = fecchaCreacion;
+    public void setFechaCreacion(ZonedDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
     public Integer getCuota() {
@@ -98,14 +99,6 @@ public class Asociacion implements Serializable {
 
     public void setCuota(Integer cuota) {
         this.cuota = cuota;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getInstrucciones() {
@@ -154,6 +147,14 @@ public class Asociacion implements Serializable {
 
     public void setImagens(Set<Imagen> imagens) {
         this.imagens = imagens;
+    }
+
+    public Set<Type> getTipos() {
+        return tipos;
+    }
+
+    public void setTipos(Set<Type> types) {
+        this.tipos = types;
     }
 
     public Set<Evento> getEventos() {
@@ -213,9 +214,8 @@ public class Asociacion implements Serializable {
         return "Asociacion{" +
             "id=" + id +
             ", name='" + name + "'" +
-            ", fecchaCreacion='" + fecchaCreacion + "'" +
+            ", fechaCreacion='" + fechaCreacion + "'" +
             ", cuota='" + cuota + "'" +
-            ", tipo='" + tipo + "'" +
             ", instrucciones='" + instrucciones + "'" +
             ", descripcion='" + descripcion + "'" +
             ", streetAdress='" + streetAdress + "'" +

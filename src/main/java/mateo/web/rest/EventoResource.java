@@ -1,7 +1,9 @@
 package mateo.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import mateo.domain.Asociacion;
 import mateo.domain.Evento;
+import mateo.repository.AsociacionRepository;
 import mateo.repository.EventoRepository;
 import mateo.web.rest.util.HeaderUtil;
 import mateo.web.rest.util.PaginationUtil;
@@ -29,10 +31,13 @@ import java.util.Optional;
 public class EventoResource {
 
     private final Logger log = LoggerFactory.getLogger(EventoResource.class);
-        
+
     @Inject
     private EventoRepository eventoRepository;
-    
+
+    @Inject
+    private AsociacionRepository asociacionRepository;
+
     /**
      * POST  /eventos : Create a new evento.
      *
@@ -46,10 +51,20 @@ public class EventoResource {
     @Timed
     public ResponseEntity<Evento> createEvento(@RequestBody Evento evento) throws URISyntaxException {
         log.debug("REST request to save Evento : {}", evento);
-        if (evento.getId() != null) {
+        List<Asociacion>  page1=asociacionRepository.findByUserIsCurrentUser();
+        System.out.println(page1+"mateeeeeeee");
+        if (evento.getId() != null ) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("evento", "idexists", "A new evento cannot already have an ID")).body(null);
         }
-        Evento result = eventoRepository.save(evento);
+
+        else if( page1.isEmpty()){
+            System.out.println(page1+"mateeeeeeee");
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("evento", "aso no created", "no add evento becouse aso no created")).body(null);
+
+        }
+       System.out.print(asociacionRepository.findByUserIsCurrentUser());
+            Evento result = eventoRepository.save(evento);
+
         return ResponseEntity.created(new URI("/api/eventos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("evento", result.getId().toString()))
             .body(result);
@@ -70,9 +85,18 @@ public class EventoResource {
     @Timed
     public ResponseEntity<Evento> updateEvento(@RequestBody Evento evento) throws URISyntaxException {
         log.debug("REST request to update Evento : {}", evento);
+        List<Asociacion>  page1=asociacionRepository.findByUserIsCurrentUser();
+        System.out.println(page1+"mateooo");
         if (evento.getId() == null) {
             return createEvento(evento);
         }
+        else if(page1.isEmpty()){
+
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("evento", "idexists", "no add evento")).body(null);
+
+        }
+        System.out.print(asociacionRepository.findByUserIsCurrentUser());
+
         Evento result = eventoRepository.save(evento);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("evento", evento.getId().toString()))
@@ -93,7 +117,7 @@ public class EventoResource {
     public ResponseEntity<List<Evento>> getAllEventos(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Eventos");
-        Page<Evento> page = eventoRepository.findAll(pageable); 
+        Page<Evento> page = eventoRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/eventos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -2,7 +2,11 @@ package mateo.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import mateo.domain.Asociacion;
+import mateo.domain.User;
 import mateo.repository.AsociacionRepository;
+import mateo.repository.UserRepository;
+import mateo.security.AuthoritiesConstants;
+import mateo.security.SecurityUtils;
 import mateo.web.rest.util.HeaderUtil;
 import mateo.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -29,10 +33,14 @@ import java.util.Optional;
 public class AsociacionResource {
 
     private final Logger log = LoggerFactory.getLogger(AsociacionResource.class);
-        
+
     @Inject
     private AsociacionRepository asociacionRepository;
-    
+
+    @Inject
+
+    private UserRepository userRepository;
+
     /**
      * POST  /asociacions : Create a new asociacion.
      *
@@ -49,7 +57,21 @@ public class AsociacionResource {
         if (asociacion.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("asociacion", "idexists", "A new asociacion cannot already have an ID")).body(null);
         }
-        Asociacion result = asociacionRepository.save(asociacion);
+        Asociacion result;
+        if(SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.USER)){
+
+            User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+            asociacion.setUser(user);
+            result = asociacionRepository.save(asociacion);
+
+        }
+        else{
+
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("asociacion", "incorrect", "inorrect")).body(null);
+
+        }
+
+
         return ResponseEntity.created(new URI("/api/asociacions/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("asociacion", result.getId().toString()))
             .body(result);
@@ -73,7 +95,18 @@ public class AsociacionResource {
         if (asociacion.getId() == null) {
             return createAsociacion(asociacion);
         }
-        Asociacion result = asociacionRepository.save(asociacion);
+        Asociacion result;
+        if(SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.USER)){
+            result = asociacionRepository.save(asociacion);
+
+        }
+        else{
+
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("asociacion", "incorrect", "inorrect")).body(null);
+
+        }
+
+
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("asociacion", asociacion.getId().toString()))
             .body(result);
@@ -93,7 +126,7 @@ public class AsociacionResource {
     public ResponseEntity<List<Asociacion>> getAllAsociacions(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Asociacions");
-        Page<Asociacion> page = asociacionRepository.findAll(pageable); 
+        Page<Asociacion> page = asociacionRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/asociacions");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

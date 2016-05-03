@@ -5,9 +5,9 @@
         .module('asoApp')
         .controller('EventoDetailController', EventoDetailController);
 
-    EventoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Evento', 'InscripcionEvento', 'Imagen', 'Favorito', 'Asociacion'];
+    EventoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Evento', 'InscripcionEvento', 'Imagen', 'Type', 'Favorito', 'Asociacion'];
 
-    function EventoDetailController($scope, $rootScope, $stateParams, entity, Evento, InscripcionEvento, Imagen, Favorito, Asociacion) {
+    function EventoDetailController($scope, $rootScope, $stateParams, entity, Evento, InscripcionEvento, Imagen, Type, Favorito, Asociacion) {
         var vm = this;
         vm.evento = entity;
         vm.load = function (id) {

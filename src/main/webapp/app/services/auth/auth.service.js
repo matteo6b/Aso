@@ -13,7 +13,7 @@
             authorize: authorize,
             changePassword: changePassword,
             createAccount: createAccount,
-    createSocio:createSocio,
+             createSocio:createSocio,
             login: login,
             logout: logout,
             resetPasswordFinish: resetPasswordFinish,

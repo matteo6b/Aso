@@ -13,6 +13,12 @@
             "otherEntityRelationshipName": "eventoi"
         },
         {
+            "relationshipName": "tipo",
+            "otherEntityName": "type",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "evento"
+        },
+        {
             "relationshipName": "favorito",
             "otherEntityName": "favorito",
             "relationshipType": "one-to-many",
@@ -29,7 +35,13 @@
         {
             "fieldName": "name",
             "fieldType": "String",
-            "fieldValidateRules": []
+            "FieldValidateRules" : [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength" : "10",
+            "fieldValidateRulesMaxlength" : "20"
         },
         {
             "fieldName": "fecha",

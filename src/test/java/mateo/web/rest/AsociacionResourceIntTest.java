@@ -47,17 +47,15 @@ public class AsociacionResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_NAME = "AAAAA";
-    private static final String UPDATED_NAME = "BBBBB";
+    private static final String DEFAULT_NAME = "A";
+    private static final String UPDATED_NAME = "B";
 
-    private static final ZonedDateTime DEFAULT_FECCHA_CREACION = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
-    private static final ZonedDateTime UPDATED_FECCHA_CREACION = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-    private static final String DEFAULT_FECCHA_CREACION_STR = dateTimeFormatter.format(DEFAULT_FECCHA_CREACION);
+    private static final ZonedDateTime DEFAULT_FECHA_CREACION = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_FECHA_CREACION = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_FECHA_CREACION_STR = dateTimeFormatter.format(DEFAULT_FECHA_CREACION);
 
     private static final Integer DEFAULT_CUOTA = 1;
     private static final Integer UPDATED_CUOTA = 2;
-    private static final String DEFAULT_TIPO = "AAAAA";
-    private static final String UPDATED_TIPO = "BBBBB";
     private static final String DEFAULT_INSTRUCCIONES = "AAAAA";
     private static final String UPDATED_INSTRUCCIONES = "BBBBB";
     private static final String DEFAULT_DESCRIPCION = "AAAAA";
@@ -98,9 +96,8 @@ public class AsociacionResourceIntTest {
     public void initTest() {
         asociacion = new Asociacion();
         asociacion.setName(DEFAULT_NAME);
-        asociacion.setFecchaCreacion(DEFAULT_FECCHA_CREACION);
+        asociacion.setFechaCreacion(DEFAULT_FECHA_CREACION);
         asociacion.setCuota(DEFAULT_CUOTA);
-        asociacion.setTipo(DEFAULT_TIPO);
         asociacion.setInstrucciones(DEFAULT_INSTRUCCIONES);
         asociacion.setDescripcion(DEFAULT_DESCRIPCION);
         asociacion.setStreetAdress(DEFAULT_STREET_ADRESS);
@@ -125,9 +122,8 @@ public class AsociacionResourceIntTest {
         assertThat(asociacions).hasSize(databaseSizeBeforeCreate + 1);
         Asociacion testAsociacion = asociacions.get(asociacions.size() - 1);
         assertThat(testAsociacion.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testAsociacion.getFecchaCreacion()).isEqualTo(DEFAULT_FECCHA_CREACION);
+        assertThat(testAsociacion.getFechaCreacion()).isEqualTo(DEFAULT_FECHA_CREACION);
         assertThat(testAsociacion.getCuota()).isEqualTo(DEFAULT_CUOTA);
-        assertThat(testAsociacion.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testAsociacion.getInstrucciones()).isEqualTo(DEFAULT_INSTRUCCIONES);
         assertThat(testAsociacion.getDescripcion()).isEqualTo(DEFAULT_DESCRIPCION);
         assertThat(testAsociacion.getStreetAdress()).isEqualTo(DEFAULT_STREET_ADRESS);
@@ -147,9 +143,8 @@ public class AsociacionResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(asociacion.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].fecchaCreacion").value(hasItem(DEFAULT_FECCHA_CREACION_STR)))
+                .andExpect(jsonPath("$.[*].fechaCreacion").value(hasItem(DEFAULT_FECHA_CREACION_STR)))
                 .andExpect(jsonPath("$.[*].cuota").value(hasItem(DEFAULT_CUOTA)))
-                .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
                 .andExpect(jsonPath("$.[*].instrucciones").value(hasItem(DEFAULT_INSTRUCCIONES.toString())))
                 .andExpect(jsonPath("$.[*].descripcion").value(hasItem(DEFAULT_DESCRIPCION.toString())))
                 .andExpect(jsonPath("$.[*].streetAdress").value(hasItem(DEFAULT_STREET_ADRESS.toString())))
@@ -169,9 +164,8 @@ public class AsociacionResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(asociacion.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.fecchaCreacion").value(DEFAULT_FECCHA_CREACION_STR))
+            .andExpect(jsonPath("$.fechaCreacion").value(DEFAULT_FECHA_CREACION_STR))
             .andExpect(jsonPath("$.cuota").value(DEFAULT_CUOTA))
-            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
             .andExpect(jsonPath("$.instrucciones").value(DEFAULT_INSTRUCCIONES.toString()))
             .andExpect(jsonPath("$.descripcion").value(DEFAULT_DESCRIPCION.toString()))
             .andExpect(jsonPath("$.streetAdress").value(DEFAULT_STREET_ADRESS.toString()))
@@ -198,9 +192,8 @@ public class AsociacionResourceIntTest {
         Asociacion updatedAsociacion = new Asociacion();
         updatedAsociacion.setId(asociacion.getId());
         updatedAsociacion.setName(UPDATED_NAME);
-        updatedAsociacion.setFecchaCreacion(UPDATED_FECCHA_CREACION);
+        updatedAsociacion.setFechaCreacion(UPDATED_FECHA_CREACION);
         updatedAsociacion.setCuota(UPDATED_CUOTA);
-        updatedAsociacion.setTipo(UPDATED_TIPO);
         updatedAsociacion.setInstrucciones(UPDATED_INSTRUCCIONES);
         updatedAsociacion.setDescripcion(UPDATED_DESCRIPCION);
         updatedAsociacion.setStreetAdress(UPDATED_STREET_ADRESS);
@@ -217,9 +210,8 @@ public class AsociacionResourceIntTest {
         assertThat(asociacions).hasSize(databaseSizeBeforeUpdate);
         Asociacion testAsociacion = asociacions.get(asociacions.size() - 1);
         assertThat(testAsociacion.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testAsociacion.getFecchaCreacion()).isEqualTo(UPDATED_FECCHA_CREACION);
+        assertThat(testAsociacion.getFechaCreacion()).isEqualTo(UPDATED_FECHA_CREACION);
         assertThat(testAsociacion.getCuota()).isEqualTo(UPDATED_CUOTA);
-        assertThat(testAsociacion.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testAsociacion.getInstrucciones()).isEqualTo(UPDATED_INSTRUCCIONES);
         assertThat(testAsociacion.getDescripcion()).isEqualTo(UPDATED_DESCRIPCION);
         assertThat(testAsociacion.getStreetAdress()).isEqualTo(UPDATED_STREET_ADRESS);

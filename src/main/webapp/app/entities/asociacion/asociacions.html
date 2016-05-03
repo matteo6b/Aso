@@ -20,9 +20,8 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span translate="asoApp.asociacion.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="fecchaCreacion"><span translate="asoApp.asociacion.fecchaCreacion">FecchaCreacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fechaCreacion"><span translate="asoApp.asociacion.fechaCreacion">FechaCreacion</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="cuota"><span translate="asoApp.asociacion.cuota">Cuota</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tipo"><span translate="asoApp.asociacion.tipo">Tipo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="instrucciones"><span translate="asoApp.asociacion.instrucciones">Instrucciones</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="descripcion"><span translate="asoApp.asociacion.descripcion">Descripcion</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="streetAdress"><span translate="asoApp.asociacion.streetAdress">StreetAdress</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -36,9 +35,8 @@
                 <tr ng-repeat="asociacion in vm.asociacions track by asociacion.id">
                     <td><a ui-sref="asociacion-detail({id:asociacion.id})">{{asociacion.id}}</a></td>
                     <td>{{asociacion.name}}</td>
-                    <td>{{asociacion.fecchaCreacion | date:'medium'}}</td>
+                    <td>{{asociacion.fechaCreacion | date:'medium'}}</td>
                     <td>{{asociacion.cuota}}</td>
-                    <td>{{asociacion.tipo}}</td>
                     <td>{{asociacion.instrucciones}}</td>
                     <td>{{asociacion.descripcion}}</td>
                     <td>{{asociacion.streetAdress}}</td>

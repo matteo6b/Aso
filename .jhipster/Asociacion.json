@@ -8,6 +8,12 @@
 
         },
         {
+            "relationshipName": "tipo",
+            "otherEntityName": "type",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "asociacion"
+        },
+        {
             "relationshipName": "evento",
             "otherEntityName": "evento",
             "relationshipType": "one-to-many",
@@ -36,27 +42,41 @@
         {
             "fieldName": "name",
             "fieldType": "String",
-            "fieldValidateRules": []
+            "FieldValidateRules" : [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength" : "1",
+            "fieldValidateRulesMaxlength" : "20"
         },
         {
-            "fieldName": "fecchaCreacion",
+            "fieldName": "fechaCreacion",
             "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "cuota",
-            "fieldType": "Integer"
+            "fieldType": "Integer",
+            "FieldValidateRules" : [
+                "required"
+            ]
         },
-        {
-            "fieldName": "tipo",
-            "fieldType": "String"
-        },
+
         {
             "fieldName": "instrucciones",
-            "fieldType": "String"
+            "fieldType": "String",
+            "FieldValidateRules" : [
+                "required"
+            ]
+
         },
         {
             "fieldName": "descripcion",
-            "fieldType": "String"
+            "fieldType": "String",
+            "FieldValidateRules" : [
+                "required"
+
+            ]
         },
         {
             "fieldName": "streetAdress",

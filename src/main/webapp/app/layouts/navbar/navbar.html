@@ -10,7 +10,7 @@
             <a class="navbar-brand" href="#/"><span translate="global.title">Aso</span> <span class="navbar-version">v{{VERSION}}</span></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" uib-collapse="vm.navCollapsed" ng-switch="vm.isAuthenticated()">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav ">
                 <li ui-sref-active="active" ng-switch-when="true"   >
                     <a ui-sref="home" ng-click="vm.navCollapsed = true">
                         <span class="glyphicon glyphicon-home"></span>
@@ -41,6 +41,9 @@
                         &#xA0;<span translate="global.menu.entities.inscripcionAso">Inscripcion Aso</span></a></li>
                         <li ui-sref-active="active" ><a ui-sref="inscripcion-evento" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span translate="global.menu.entities.inscripcionEvento">Inscripcion Evento</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="type" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span translate="global.menu.entities.type">type</span></a></li>
+
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>

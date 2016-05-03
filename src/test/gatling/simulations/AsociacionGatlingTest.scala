@@ -67,7 +67,7 @@ class AsociacionGatlingTest extends Simulation {
             .exec(http("Create new asociacion")
             .post("/api/asociacions")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "fecchaCreacion":"2020-01-01T00:00:00.000Z", "cuota":"0", "tipo":"SAMPLE_TEXT", "instrucciones":"SAMPLE_TEXT", "descripcion":"SAMPLE_TEXT", "streetAdress":"SAMPLE_TEXT", "lat":null, "lng":null}""")).asJSON
+            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "fechaCreacion":"2020-01-01T00:00:00.000Z", "cuota":"0", "instrucciones":"SAMPLE_TEXT", "descripcion":"SAMPLE_TEXT", "streetAdress":"SAMPLE_TEXT", "lat":null, "lng":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_asociacion_url"))).exitHereIfFailed
             .pause(10)

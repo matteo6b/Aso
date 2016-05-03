@@ -3,9 +3,9 @@
 
     angular
         .module('asoApp', [
-            'ngStorage', 
+            'ngStorage',
             'tmh.dynamicLocale',
-            'pascalprecht.translate', 
+            'pascalprecht.translate',
             'ngResource',
             'ngCookies',
             'ngAria',
@@ -15,6 +15,8 @@
             'ui.bootstrap.datetimepicker',
             'ui.router',
             'infinite-scroll',
+            'ngMap',
+
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar'
         ])

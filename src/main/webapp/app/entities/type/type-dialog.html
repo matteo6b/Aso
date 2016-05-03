@@ -1,0 +1,44 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTypeLabel" translate="asoApp.type.home.createOrEditLabel">Create or edit a Type</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.type.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="asoApp.type.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.type.nombre"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="asoApp.type.asociacion" for="field_asociacion">asociacion</label>
+            <select class="form-control" id="field_asociacion" name="asociacion" ng-model="vm.type.asociacion" ng-options="asociacion as asociacion.nombre for asociacion in vm.asociacions track by asociacion.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="asoApp.type.evento" for="field_evento">evento</label>
+            <select class="form-control" id="field_evento" name="evento" ng-model="vm.type.evento" ng-options="evento as evento.nombre for evento in vm.eventos track by evento.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

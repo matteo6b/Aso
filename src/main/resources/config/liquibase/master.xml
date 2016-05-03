@@ -21,5 +21,6 @@
 
 
 
+    <include file="classpath:config/liquibase/changelog/20160502231616_added_entity_Type.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

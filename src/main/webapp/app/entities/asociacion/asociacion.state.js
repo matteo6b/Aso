@@ -72,9 +72,8 @@
                         entity: function () {
                             return {
                                 name: null,
-                                fecchaCreacion: null,
+                                fechaCreacion: null,
                                 cuota: null,
-                                tipo: null,
                                 instrucciones: null,
                                 descripcion: null,
                                 streetAdress: null,

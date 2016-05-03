@@ -54,6 +54,10 @@ public class Evento implements Serializable {
     @JsonIgnore
     private Set<Imagen> imagens = new HashSet<>();
 
+    @OneToMany(mappedBy = "evento")
+    @JsonIgnore
+    private Set<Type> tipos = new HashSet<>();
+
     @OneToMany(mappedBy = "eventof")
     @JsonIgnore
     private Set<Favorito> favoritos = new HashSet<>();
@@ -147,6 +151,14 @@ public class Evento implements Serializable {
 
     public void setImagens(Set<Imagen> imagens) {
         this.imagens = imagens;
+    }
+
+    public Set<Type> getTipos() {
+        return tipos;
+    }
+
+    public void setTipos(Set<Type> types) {
+        this.tipos = types;
     }
 
     public Set<Favorito> getFavoritos() {

@@ -8,6 +8,21 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
+
+        <input class="form-control" autocomplete="off"  places-auto-complete size=80
+               ng-model="vm.address"
+               component-restrictions="{country:'es'}"
+               types="{{types}}"
+               on-place-changed="vm.placeChanged()" /> <br/>
+        <div ng-show="vm.place">
+           {{ vm.place.formatted_address}}
+        </div>
+        <ng-map  center="{{vm.address}}" > <marker position="{{vm.address}}" title="{{address}}"></marker></ng-map>
+
+
+
+
+
         <div class="form-group">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
@@ -72,12 +87,7 @@
                      />
         </div>
 
-        <div class="form-group">
-            <label translate="asoApp.asociacion.user" for="field_user">user</label>
-            <select class="form-control" id="field_user" name="user" ng-model="vm.asociacion.user" ng-options="user as user.login for user in vm.users track by user.id">
-                <option value=""></option>
-            </select>
-        </div>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
@@ -88,3 +98,10 @@
         </button>
     </div>
 </form>
+<style>
+
+    .pac-container{
+        z-index: 2000000;
+    }
+
+</style>

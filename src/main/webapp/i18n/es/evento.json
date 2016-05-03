@@ -26,6 +26,7 @@
             "descripcion": "Descripcion",
             "evento": "Evento",
             "imagen": "Imagen",
+            "tipo": "Tipo",
             "favorito": "Favorito",
             "asociacionevent": "Asociacionevent"
         }

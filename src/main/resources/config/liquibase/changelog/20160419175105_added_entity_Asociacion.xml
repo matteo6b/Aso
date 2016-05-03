@@ -25,15 +25,11 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="feccha_creacion" type="timestamp">
+            <column name="fecha_creacion" type="timestamp">
                 <constraints nullable="true" />
             </column>
             
             <column name="cuota" type="integer">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="tipo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
@@ -60,7 +56,7 @@
             <column name="user_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="asociacion" columnName="feccha_creacion" columnDataType="datetime"/>
+        <dropDefaultValue tableName="asociacion" columnName="fecha_creacion" columnDataType="datetime"/>
         
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="asociacion"
